@@ -30,6 +30,8 @@
   "devDependencies": {
     "babel-core": "^5.1.11",
     "babel-loader": "^5.0.0",
+    "grunt": "^0.4.5",
+    "grunt-webpack": "^1.0.8",
     "react-hot-loader": "^1.2.2",
     "webpack": "^1.7.2",
     "webpack-dev-server": "^1.7.0"
