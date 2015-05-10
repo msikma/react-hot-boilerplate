@@ -21,6 +21,7 @@ This is a quick list of changes. This will be rewritten into a better readme lat
 * Added Grunt support
 * Moved `.babelrc` to the `config/` directory, and modified the Webpack config to find it
 * Moved `webpack.config.json` to the `config/` directory
+* Removed the `server.js` script
 
 ### More information
 
