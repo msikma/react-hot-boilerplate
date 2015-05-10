@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     'pkg': grunt.file.readJSON('package.json'),
     'webpack-dev-server': {
       'dev': {
-        'webpack': require('./webpack.config.js'),
+        'webpack': require('./config/webpack.config.js'),
         'publicPath': '/scripts/',
         'keepalive': true,
         'port': 3000,
