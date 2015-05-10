@@ -1,19 +1,16 @@
+var path = require('path');
+
+function getTaskConfig(task) {
+  return path.join(process.cwd(), 'tasks', task + '.js');
+}
+
 module.exports = function(grunt) {
   'use strict';
+  
+  require("load-grunt-tasks")(grunt);
 
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
-    'webpack-dev-server': {
-      'dev': {
-        'webpack': require('./config/webpack.config.js'),
-        'publicPath': '/scripts/',
-        'keepalive': true,
-        'port': 3000,
-        'hot': true,
-        'historyApiFallback': true
-      }
-    }
+    'webpack-dev-server': require(getTaskConfig('webpack-dev-server'))
   });
-  
-  grunt.loadNpmTasks('grunt-webpack');
 };
