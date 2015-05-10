@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
     'webpack-dev-server': requireTask('webpack-dev-server'),
-    'jshint': requireTask('jshint')
+    'jshint': requireTask('jshint'),
+    'eslint': requireTask('eslint')
   });
 };
