@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var babelConfig = require('./config/babel.config.json');
 
 module.exports = {
   devtool: 'eval',
@@ -23,7 +24,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['react-hot', 'babel'],
+      loaders: ['react-hot', 'babel-loader?' + JSON.stringify(babelConfig)],
       include: path.join(__dirname, 'scripts')
     }]
   }
