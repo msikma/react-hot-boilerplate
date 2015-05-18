@@ -18,10 +18,17 @@ module.exports = function(grunt) {
     'pkg': grunt.file.readJSON('package.json'),
 
     // Webpack - bundle compilation and resource compression toolset
+    'webpack': requireTask('webpack'),
     'webpack-dev-server': requireTask('webpack-dev-server'),
 
     // eslint - tests code quality
     'eslint': requireTask('eslint'),
+
+    // Copy - copies over static assets
+    'copy': requireTask('copy'),
+
+    // Clean - cleans files and folders
+    'clean': requireTask('clean'),
 
     // JSCS - tests code style
     'jscs': requireTask('jscs'),
@@ -32,4 +39,5 @@ module.exports = function(grunt) {
 
   // Build scripts.
   requireScript('dev');
+  requireScript('release');
 };
