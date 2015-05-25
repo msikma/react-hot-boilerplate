@@ -5,7 +5,7 @@ module.exports = {
     'webpack': require(path.join(process.cwd(), 'tasks/config/webpack.js')),
     'publicPath': '/public/',
     'keepalive': true,
-    'port': 3000,
+    'port': 8080,
     'hot': true,
     'historyApiFallback': true
   }
