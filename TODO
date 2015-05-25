@@ -1,0 +1,2 @@
+ExtractTextPlugin
+force clean to not remove the public directory
