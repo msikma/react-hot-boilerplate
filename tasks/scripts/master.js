@@ -3,13 +3,13 @@
 // see the 'copyright.md' file, which is part of this source code package.
 
 var grunt = require('grunt');
-var copyright = require('../helpers/reisan-copyright.js');
+var copyright = require('../helpers/copyright.js');
 
 module.exports = grunt.registerTask(
-  'dev',
-  'Runs a development server on localhost:3000.',
+  'master',
+  'Compiles a master release of the project that\'s CDN-ready.',
   function() {
-    process.env.NODE_ENV = 'development';
+    process.env.NODE_ENV = 'production';
     copyright.print();
     grunt.task.run('newer:copy:html');
     grunt.task.run('newer:copy:images');

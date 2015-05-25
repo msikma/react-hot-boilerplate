@@ -6,8 +6,8 @@ var grunt = require('grunt');
 var copyright = require('../helpers/copyright.js');
 
 module.exports = grunt.registerTask(
-  'dev',
-  'Runs a development server on localhost:8080.',
+  'staging',
+  'Compiles a staging release version of the project.',
   function() {
     process.env.NODE_ENV = 'development';
     copyright.print();

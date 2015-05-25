@@ -39,5 +39,6 @@ module.exports = function(grunt) {
 
   // Build scripts.
   requireScript('dev');
-  requireScript('release');
+  requireScript('staging');
+  requireScript('master');
 };
