@@ -69,6 +69,27 @@ Your changes will appear without reloading the browser.
   want to change to your own notice.
 * The three build scripts are in `/tasks/scripts`.
 
+When making a build, the following things need to be kept in mind:
+
+* Files are saved to the `/public` directory, which is excluded from git.
+* The dev server only emits the files it generates, without creating any
+  actual JS/CSS files (until you do a staging or master build). Other files
+  are still copied over.
+* Staging and master builds have optimizations such as
+  [UglifyJS](https://github.com/mishoo/UglifyJS).
+* Everything inside `/app/assets/public` is copied over to `/public` verbatim.
+  So this is where you can put your `robots.txt` and other files.
+* After doing a staging or master build, you can serve the contents of the
+  `/public` folder verbatim.
+* The `index.html` file is generated from a
+  [Mustache](http://mustache.github.io/) template. See
+  `/app/assets/templates/index.html.mustache`.
+
+
+### Bugs
+
+* The sprite generator currently only works with .png files.
+
 
 License
 -------
