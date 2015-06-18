@@ -41,4 +41,7 @@ module.exports = function(grunt) {
   requireScript('dev');
   requireScript('staging');
   requireScript('master');
+
+  // Display the usage information by default.
+  grunt.registerTask('default', ['usage']);
 };
