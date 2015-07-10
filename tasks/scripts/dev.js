@@ -11,9 +11,8 @@ module.exports = grunt.registerTask(
   function() {
     process.env.NODE_ENV = 'development';
     copyright.print();
-    grunt.task.run('newer:copy:html');
-    grunt.task.run('newer:copy:images');
-    grunt.task.run('sprite');
+    grunt.task.run('copy:assets');
+    //grunt.task.run('sprite');
     grunt.task.run('webpack-dev-server');
   }
 );
