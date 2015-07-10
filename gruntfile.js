@@ -1,5 +1,4 @@
 // blah blah
-
 var path = require('path');
 
 function requireTask(task) {
@@ -37,7 +36,7 @@ module.exports = function(grunt) {
     'usage': requireTask('usage')
   });
 
-  // Build scripts.
+  // Load the three main build scripts.
   requireScript('dev');
   requireScript('staging');
   requireScript('master');
