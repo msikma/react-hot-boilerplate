@@ -12,8 +12,17 @@ module.exports = grunt.registerTask(
     process.env.NODE_ENV = 'development';
     copyrightInfo.print();
 
-    grunt.task.run('newer:copy:assets');
+    // Copy over the public assets.
+    grunt.task.run('newer:copy:root');
+    grunt.task.run('newer:copy:images');
+
+    // Generate the index.html file.
+    grunt.task.run('jade:dev');
+
+    // Generate spritesheets.
     //grunt.task.run('sprite');
+
+    // Generate the JS bundles.
     grunt.task.run('webpack-dev-server');
   }
 );

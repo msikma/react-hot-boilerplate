@@ -35,6 +35,7 @@ var getData = function(dest, src) {
     'NODE_ENV': process.env.NODE_ENV,
     'html': '',
     'data': JSON.stringify({'data': 'nothing here'}),
+    'bundle': 'bundle.js',
     'copyright': formatTopComment(copyrightInfo.string('public')),
     'build': formatTopComment(buildInfo.string())
   };
