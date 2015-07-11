@@ -11,7 +11,13 @@ var files = {
   'public/index.html': ['app/assets/templates/index.jade']
 };
 
-
+/**
+ * Performs a minor bit of whitespace formatting to comments at the
+ * top of the file.
+ *
+ * @param {String} str The raw top comment string
+ * @returns {String} The formatted top comment string
+ */
 function formatTopComment(str) {
   str = EOL + str.trim();
   return str;
@@ -27,6 +33,8 @@ function formatTopComment(str) {
 var getData = function(dest, src) {
   return {
     'NODE_ENV': process.env.NODE_ENV,
+    'html': '',
+    'data': JSON.stringify({'data': 'nothing here'}),
     'copyright': formatTopComment(copyrightInfo.string('public')),
     'build': formatTopComment(buildInfo.string())
   };

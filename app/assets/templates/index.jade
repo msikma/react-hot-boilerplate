@@ -1,19 +1,8 @@
-doctype html
-html
-    if NODE_ENV == 'production'
-        //
-            !{copyright}
-    if NODE_ENV == 'development'
-        //
-            !{build}
-    head
-        meta(charset='utf-8')
-        title #{title}
-        meta(name='description', content='#{meta_desc}')
-        meta(name='keywords', content='#{meta_keyw}')
-        meta(name='viewport', content='#{viewport}')
-        if favicon
-            link(rel='icon', type='image/png', href='favicon.png')
-    body
-        #root
+extends container
+
+block content
+    #root
+        #app!=html
+        script.
+            __DATA__ = !{data}
     script(src='/public/bundle.js')
