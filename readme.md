@@ -65,8 +65,8 @@ Your changes will appear without reloading the browser.
 * All files related to the build system (except the Gruntfile itself)
   are in `/tasks`.
 * Configuration files for the build scripts are in `/tasks/config`.
-* There's a copyright file in `/tasks/helpers/copyright.js`, which you might
-  want to change to your own notice.
+* There's a copyright file in `/tasks/helpers/copyright-info.js`, which you
+  might want to change to your own notice.
 * The three build scripts are in `/tasks/scripts`.
 
 When making a build, the following things need to be kept in mind:

@@ -3,15 +3,16 @@
 // see the 'copyright.md' file, which is part of this source code package.
 
 var grunt = require('grunt');
-var copyright = require('../helpers/copyright.js');
+var copyrightInfo = require('../helpers/copyright-info.js');
 
 module.exports = grunt.registerTask(
   'dev',
   'Runs a development server on localhost:8080.',
   function() {
     process.env.NODE_ENV = 'development';
-    copyright.print();
-    grunt.task.run('copy:assets');
+    copyrightInfo.print();
+
+    grunt.task.run('newer:copy:assets');
     //grunt.task.run('sprite');
     grunt.task.run('webpack-dev-server');
   }

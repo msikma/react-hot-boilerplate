@@ -3,11 +3,11 @@
 // see the 'copyright.md' file, which is part of this source code package.
 
 // Helper function to print the copyright.
-var copyright = require('./helpers/copyright.js');
+var copyrightInfo = require('./helpers/copyright-info.js');
 
 module.exports = {
   'options': {
-    'title': copyright.lines(),
+    'title': copyrightInfo.lines(true),
     'description': 'Task runner script for [Project name].',
     'formatting': {
       'addPeriod': true

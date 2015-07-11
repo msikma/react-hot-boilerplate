@@ -32,6 +32,9 @@ module.exports = function(grunt) {
     // JSCS - tests code style
     'jscs': requireTask('jscs'),
 
+    // Jade - compiles Jade templates into HTML
+    'jade': requireTask('jade'),
+
     // Usage - displays usage information in a user-friendly manner
     'usage': requireTask('usage')
   });

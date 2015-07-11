@@ -3,17 +3,26 @@
 // see the 'copyright.md' file, which is part of this source code package.
 
 var grunt = require('grunt');
-var copyright = require('../helpers/copyright.js');
+var copyrightInfo = require('../helpers/copyright-info.js');
 
 module.exports = grunt.registerTask(
   'master',
   'Compiles a master release of the project that\'s CDN-ready.',
   function() {
     process.env.NODE_ENV = 'production';
-    copyright.print();
-    grunt.task.run('newer:copy:html');
+    copyrightInfo.print();
+
+    // Copy over the public assets.
+    grunt.task.run('newer:copy:root');
     grunt.task.run('newer:copy:images');
-    grunt.task.run('sprite');
-    grunt.task.run('webpack-dev-server');
+
+    // Generate the index.html file.
+    grunt.task.run('jade:master');
+
+    // Generate spritesheets.
+    //grunt.task.run('sprite');
+
+    // Generate the JS bundles.
+    //grunt.task.run('webpack');
   }
 );
