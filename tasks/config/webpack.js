@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './app/index'
+    './app/lib/App'
   ],
   output: {
     path: path.join(process.cwd(), 'public'),
