@@ -49,5 +49,19 @@
     "classnames": "^2.1.3",
     "lodash": "^3.10.0",
     "react": "^0.13.3"
+  },
+  "_app": {
+    "copyrightStartYear": 2014,
+    "copyrightSource": [
+      ["Reisan Webapp <https://github.com/reisan/webapp>", "cyan"],
+      ["(C) %YEAR%, Reisan Ltd. - All rights reserved.", "green"],
+      ["This program is part of the Reisan Japanese language education app project.", "yellow"],
+      ["For more information, visit <https://rei-san.com/>.", "yellow"],
+      [""]
+    ],
+    "copyrightPublic": [
+      ["Reisan"],
+      ["(C) %YEAR%, Reisan Ltd. - All rights reserved."]
+    ]
   }
 }

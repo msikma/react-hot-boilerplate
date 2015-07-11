@@ -3,25 +3,35 @@
 // see the 'copyright.md' file, which is part of this source code package.
 
 var grunt = require('grunt');
+var path = require('path');
 var EOL = require('os').EOL;
+var packageData = require(path.join(process.cwd(), 'package.json'));
+var appConfig = packageData._app;
 
-var year = new Date().getFullYear();
+// Determine the copyright year range, e.g. '2015' or '2014–2015', etc.
+var startYear = appConfig.copyrightStartYear;
+var currYear = new Date().getFullYear();
+var copyrightYear = startYear == currYear
+  ? currYear
+  : startYear + '–' + currYear;
 
 // Public copyright lines - displayed in files visible to the public.
-var publicCopyright = [
-  ['Reisan'],
-  ['(C) 2014-' + year + ', Reisan Ltd. - All rights reserved.']
-];
+var publicCopyright = filterCopyright(appConfig.copyrightPublic);
 
 // Source code copyright lines - only shown during development.
-var sourceCopyright = [
-  ['Reisan Webapp <https://github.com/reisan/webapp>', 'cyan'],
-  [('(C) 2014-' + year + ', Reisan Ltd. - All rights reserved.'), 'green'],
-  [('This program is part of the Reisan Japanese language ' +
-    'education app project.'), 'yellow'],
-  ['For more information, visit <https://rei-san.com/>.', 'yellow'],
-  ['']
-];
+var sourceCopyright = filterCopyright(appConfig.copyrightSource);
+
+/**
+ * Filter the copyright strings to do string substitutions.
+ * @param {Array} lines The copyright lines
+ */
+function filterCopyright(lines) {
+  lines.map(function(item) {
+    item[0] = item[0].replace('%YEAR%', copyrightYear);
+    return item;
+  });
+  return lines;
+}
 
 /**
  * Returns an array of copyright lines, either colorized or plain strings.

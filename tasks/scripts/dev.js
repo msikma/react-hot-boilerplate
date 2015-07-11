@@ -10,7 +10,7 @@ module.exports = grunt.registerTask(
   'Runs a development server on localhost:8080.',
   function() {
     process.env.NODE_ENV = 'development';
-    copyrightInfo.print();
+    copyrightInfo.print('source', true);
 
     // Copy over the public assets.
     grunt.task.run('newer:copy:root');

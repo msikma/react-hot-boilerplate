@@ -7,7 +7,7 @@ var copyrightInfo = require('./helpers/copyright-info.js');
 
 module.exports = {
   'options': {
-    'title': copyrightInfo.lines(true),
+    'title': copyrightInfo.lines('source', true),
     'description': 'Task runner script for [Project name].',
     'formatting': {
       'addPeriod': true
