@@ -53,15 +53,15 @@
   "_app": {
     "copyrightStartYear": 2014,
     "copyrightSource": [
-      ["Reisan Webapp <https://github.com/reisan/webapp>", "cyan"],
-      ["(C) %YEAR%, Reisan Ltd. - All rights reserved.", "green"],
-      ["This program is part of the Reisan Japanese language education app project.", "yellow"],
-      ["For more information, visit <https://rei-san.com/>.", "yellow"],
+      ["React Hot Boilerplate <https://github.com/some/url>", "cyan"],
+      ["(C) %YEAR%, Michie Sikma <michiel@sikma.org>", "green"],
+      ["Replace this copyright notice with your own. It's located in package.json.", "yellow"],
+      ["For more information, visit <https://my.cool.website.com/>.", "yellow"],
       [""]
     ],
     "copyrightPublic": [
-      ["Reisan"],
-      ["(C) %YEAR%, Reisan Ltd. - All rights reserved."]
+      ["React Hot Boilerplate"],
+      ["(C) %YEAR%, Michiel Sikma - MIT License"]
     ]
   }
 }
