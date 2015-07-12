@@ -1,6 +1,6 @@
-// Copyright (C) 2014-2015, Reisan Ltd. - All rights reserved.
-// This file is proprietary and confidential. For more information,
-// see the 'copyright.md' file, which is part of this source code package.
+// React Hot Boilerplate (replace this copyright notice with your own)
+// (C) 2015, Michiel Sikma <michiel@sikma.org>
+// MIT License
 
 var grunt = require('grunt');
 var EOL = require('os').EOL;
