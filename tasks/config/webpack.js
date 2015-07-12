@@ -18,7 +18,18 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    // These aliases are used to make it easier to import
+    // our own modules.
+    'alias': {
+      'app': path.join(process.cwd(), 'app'),
+      'components': 'app/lib/components',
+      'actions': 'app/lib/actions',
+      'constants': 'app/lib/constants',
+      'etc': 'app/lib/etc',
+      'stores': 'app/lib/stores',
+      'style': 'app/style'
+    }
   },
   module: {
     loaders: [{

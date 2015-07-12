@@ -3,11 +3,15 @@
 // MIT License
 
 import React from 'react';
+import ClickMe from './ClickMe/ClickMe';
 
 export default class Interface extends React.Component {
   render() {
     return (
-      <h1>Hello, world.</h1>
+      <div>
+        <h1>Hello, world.</h1>
+        <ClickMe />
+      </div>
     );
   }
 }
