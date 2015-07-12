@@ -2,7 +2,6 @@
 // (C) 2015, Michiel Sikma <michiel@sikma.org>
 // MIT License
 
-var grunt = require('grunt');
 var EOL = require('os').EOL;
 var repov = require('repo-v');
 var path = require('path');
@@ -36,17 +35,7 @@ function getBuildString(indent) {
   return lines.join(EOL + indent);
 }
 
-/**
- * Prints the build info directly to the terminal.
- *
- * @param {String} indent Optionally, an indent string after the linebreaks
- */
-function printBuild(indent) {
-  grunt.log.write(getBuildString(indent));
-}
-
 module.exports = {
   'lines': getBuildLines,
-  'string': getBuildString,
-  'print': printBuild
+  'string': getBuildString
 };

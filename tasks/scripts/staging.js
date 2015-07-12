@@ -10,7 +10,7 @@ module.exports = grunt.registerTask(
   'Compiles a staging release version of the project.',
   function() {
     process.env.NODE_ENV = 'development';
-    copyrightInfo.print('source', true);
+    grunt.log.write(copyrightInfo.string('source', true));
 
     // Copy over the public assets.
     grunt.task.run('newer:copy:root');

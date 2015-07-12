@@ -2,7 +2,6 @@
 // (C) 2015, Michiel Sikma <michiel@sikma.org>
 // MIT License
 
-var grunt = require('grunt');
 var path = require('path');
 var EOL = require('os').EOL;
 var packageData = require(path.join(process.cwd(), 'package.json'));
@@ -53,8 +52,8 @@ function getCopyrightLines(type, colorized) {
     lineContent = copyrightLines[n][0];
     lineColor = copyrightLines[n][1];
 
-    if (colorized && lineColor) {
-      // Note: this is a Grunt trick. Applies colorized output,
+    if (colorized && lineColor && lineContent[lineColor]) {
+      // Note: this is a Grunt-only trick. Applies colorized output,
       // e.g. 'string'.yellow
       cleanLines.push(lineContent[lineColor]);
     }
@@ -78,19 +77,7 @@ function getCopyrightString(type, colorized) {
   return getCopyrightLines(type, colorized).join(EOL) + EOL;
 }
 
-/**
- * See getCopyrightString(), except this prints the output directly.
- *
- * @param {String} type Whether to display the public or source copyright
- * @param {Boolean} colorized Whether to colorize the output for terminal
- */
-function printCopyright(type, colorized) {
-  if (!type) type = 'source';
-  grunt.log.write(getCopyrightString(type, colorized));
-}
-
 module.exports = {
   'lines': getCopyrightLines,
-  'string': getCopyrightString,
-  'print': printCopyright
+  'string': getCopyrightString
 };
