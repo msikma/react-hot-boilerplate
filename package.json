@@ -58,7 +58,7 @@
     ],
     "runDescription": "React Hot Boilerplate front-end server script. Listens for incoming requests and returns HTML.",
     "runEpilogue": "See <http://github.com/some/url> for more information. Change this string in package.json.",
-    "importAliases": [
+    "importPaths": [
       "/app/lib/"
     ]
   }

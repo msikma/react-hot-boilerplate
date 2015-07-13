@@ -12,11 +12,11 @@ var repov = require('repo-v');
 var packageData = require(__dirname + '/package.json');
 var appConfig = packageData._app;
 
-// Add application import aliases. By default we add /app/lib/ to the list
+// Add application import paths. By default we add /app/lib/ to the list
 // of import paths, allowing easy access to all the main modules.
-// See the 'importAliases' key in the package.json file.
-for (var n = 0; n < appConfig.importAliases.length; ++n) {
-  appModulePath.addPath(__dirname + appConfig.importAliases[n]);
+// See the 'importPaths' key in the package.json file.
+for (var n = 0; n < appConfig.importPaths.length; ++n) {
+  appModulePath.addPath(__dirname + appConfig.importPaths[n]);
 }
 
 // Set up the arguments parser to accept command-line arguments.
