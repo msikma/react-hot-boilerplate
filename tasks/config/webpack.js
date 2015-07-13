@@ -19,8 +19,9 @@ module.exports = {
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    // These aliases are used to make it easier to import
-    // our own modules.
+    // These aliases are used to make it easier to import our own modules.
+    // This works in tandem with the import path described in package.json,
+    // which is used for the HTML rendering server code.
     'alias': {
       'app': path.join(process.cwd(), 'app'),
       'components': 'app/lib/components',
