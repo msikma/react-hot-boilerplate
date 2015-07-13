@@ -4,7 +4,8 @@ import dbg from 'debug';
 import http from 'http';
 
 import React from 'react';
-import Interface from '../lib/components/interface';
+import Alt from 'etc/Alt';
+import Interface from 'components/Interface'
 var a = React.renderToString(<Interface />);
 console.log(a);
 
