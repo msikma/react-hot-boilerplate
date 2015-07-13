@@ -25,10 +25,9 @@ module.exports = {
       'app': path.join(process.cwd(), 'app'),
       'components': 'app/lib/components',
       'actions': 'app/lib/actions',
-      'constants': 'app/lib/constants',
       'etc': 'app/lib/etc',
       'stores': 'app/lib/stores',
-      'style': 'app/style'
+      'pages': 'app/lib/pages'
     }
   },
   module: {

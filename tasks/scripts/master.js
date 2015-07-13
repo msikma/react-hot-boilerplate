@@ -10,7 +10,7 @@ module.exports = grunt.registerTask(
   'Compiles a master release of the project that\'s CDN-ready.',
   function() {
     process.env.NODE_ENV = 'production';
-    grunt.log.write(copyrightInfo.string('source', true));
+    grunt.log.writeln(copyrightInfo.string('source', true));
 
     // Copy over the public assets.
     grunt.task.run('newer:copy:root');

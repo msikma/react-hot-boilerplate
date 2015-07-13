@@ -2,12 +2,14 @@
 // (C) 2015, Michiel Sikma <michiel@sikma.org>
 // MIT License
 
+var EOL = require('os').EOL;
+
 // Helper function to print the copyright.
 var copyrightInfo = require('./helpers/copyright-info.js');
 
 module.exports = {
   'options': {
-    'title': copyrightInfo.lines('source', true),
+    'title': copyrightInfo.lines('source', true, true),
     'description': 'Task runner script for [Project name].',
     'formatting': {
       'addPeriod': true

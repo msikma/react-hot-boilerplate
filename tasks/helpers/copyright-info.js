@@ -39,9 +39,10 @@ function filterCopyright(lines) {
  *
  * @param {String} type Whether to display the public or source copyright
  * @param {Boolean} colorized Whether to colorize the output for terminal
+ * @param {Boolean} addEmpty Whether to add an empty line at the end
  * @returns {Array} The copyright lines
  */
-function getCopyrightLines(type, colorized) {
+function getCopyrightLines(type, colorized, addEmpty) {
   if (!type) type = 'source';
   var cleanLines = [];
   var lineContent;
@@ -52,14 +53,18 @@ function getCopyrightLines(type, colorized) {
     lineContent = copyrightLines[n][0];
     lineColor = copyrightLines[n][1];
 
-    if (colorized && lineColor && lineContent[lineColor]) {
-      // Note: this is a Grunt-only trick. Applies colorized output,
+    if (colorized && lineColor) {
+      // Note: this is a Grunt trick. Applies colorized output,
       // e.g. 'string'.yellow
       cleanLines.push(lineContent[lineColor]);
     }
     else {
       cleanLines.push(lineContent);
     }
+  }
+  // Add an empty line if we need it.
+  if (addEmpty) {
+    cleanLines.push('');
   }
   return cleanLines;
 }
@@ -76,7 +81,6 @@ function getCopyrightString(type, colorized) {
   if (!type) type = 'source';
   return getCopyrightLines(type, colorized).join(EOL) + EOL;
 }
-
 module.exports = {
   'lines': getCopyrightLines,
   'string': getCopyrightString

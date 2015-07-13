@@ -3,6 +3,7 @@
 // MIT License
 
 var grunt = require('grunt');
+var EOL = require('os').EOL;
 var copyrightInfo = require('../helpers/copyright-info.js');
 
 module.exports = grunt.registerTask(
@@ -10,7 +11,7 @@ module.exports = grunt.registerTask(
   'Runs a development server on localhost:8080.',
   function() {
     process.env.NODE_ENV = 'development';
-    grunt.log.write(copyrightInfo.string('source', true));
+    grunt.log.writeln(copyrightInfo.string('source', true));
 
     // Copy over the public assets.
     grunt.task.run('newer:copy:root');
