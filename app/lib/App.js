@@ -14,10 +14,11 @@ const routes = (
   <Route handler={Interface}>
     <Route name="about" path="about" handler={About} />
     <Route name="contact" path="contact" handler={Contact} />
+    <Redirect from="company" to="about" />
   </Route>
 );
 
-// Listen to the URL and render the application.
-Router.run(routes, Router.HashLocation, (Root) => {
-  React.render(<Root />, document.getElementById('root'));
+// Listen for URL changes and render the application.
+Router.run(routes, Router.HistoryLocation, (Handler) => {
+  React.render(<Handler />, document.getElementById('root'));
 });
