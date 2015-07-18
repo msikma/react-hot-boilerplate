@@ -2,6 +2,11 @@
 // (C) 2015, Michiel Sikma <michiel@sikma.org>
 // MIT License
 
+'use strict';
+
+// Note: this file is in ES5 so that it can be used by Grunt
+// without the need for transpilation.
+
 var path = require('path');
 var EOL = require('os').EOL;
 var packageData = require(path.join(process.cwd(), 'package.json'));
@@ -53,9 +58,9 @@ function getCopyrightLines(type, colorized, addEmpty) {
     lineContent = copyrightLines[n][0];
     lineColor = copyrightLines[n][1];
 
-    if (colorized && lineColor) {
-      // Note: this is a Grunt trick. Applies colorized output,
-      // e.g. 'string'.yellow
+    if (colorized && lineColor && lineContent[lineColor]) {
+      // Note: this only works when using with Grunt; never true otherwise.
+      // Applies colorized output, e.g. 'string'.yellow.
       cleanLines.push(lineContent[lineColor]);
     }
     else {
@@ -81,6 +86,7 @@ function getCopyrightString(type, colorized) {
   if (!type) type = 'source';
   return getCopyrightLines(type, colorized).join(EOL) + EOL;
 }
+
 module.exports = {
   'lines': getCopyrightLines,
   'string': getCopyrightString

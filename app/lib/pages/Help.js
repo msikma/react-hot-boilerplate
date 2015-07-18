@@ -6,12 +6,13 @@ import React from 'react';
 
 import ClickMe from 'components/ClickMe/ClickMe';
 
-export default class Contact extends React.Component {
+export default class Help extends React.Component {
+  /** @returns {XML} */
   render() {
     return (
       <div>
-        <h2>Contact page</h2>
-        <ClickMe showCount={false} />
+        <h2>Help!</h2>
+        <p>Here's some help content.</p>
       </div>
     );
   }

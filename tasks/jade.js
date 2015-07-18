@@ -3,8 +3,8 @@
 // MIT License
 
 var EOL = require('os').EOL;
-var copyrightInfo = require('./helpers/copyright-info.js');
-var buildInfo = require('./helpers/build-info.js');
+var copyrightInfo = require('../app/lib/etc/copyright-info.js');
+var buildInfo = require('../app/lib/etc/build-info.js');
 
 // Base list of files we need to compile, using 'source': 'destination'.
 var files = {
@@ -32,7 +32,9 @@ function formatTopComment(str) {
  */
 var getData = function(dest, src) {
   return {
-    'NODE_ENV': process.env.NODE_ENV,
+    'showCopyrightComment': process.env.NODE_ENV == 'production',
+    'showBuildComment': process.env.NODE_ENV == 'development',
+    'showBuildTag': true,
     'html': '',
     'data': JSON.stringify({'data': 'nothing here'}),
     'bundle': 'bundle.js',

@@ -1,17 +1,18 @@
 doctype html
 html
-    if NODE_ENV == 'production'
+    if showCopyrightComment
         //
             !{copyright}
-    if NODE_ENV == 'development'
+    if showBuildComment
         //
             !{build}
     head
         meta(charset='utf-8')
         title #{title}
-        meta(name='description', content='#{meta_desc}')
-        meta(name='keywords', content='#{meta_keyw}')
-        meta(name='viewport', content='#{viewport}')
+        meta(name='build', content='#{buildOneLiner}')
+        meta(name='description', content='#{metaDescription}')
+        meta(name='keywords', content='#{metaKeywords}')
+        meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no')
         if favicon
             link(rel='icon', type='image/png', href='favicon.png')
     body

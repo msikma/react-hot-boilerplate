@@ -56,7 +56,7 @@ grunt dev
 open http://localhost:8080
 ```
 
-Now edit `scripts/App.js`.  
+Now edit `scripts/routes.js`.  
 Your changes will appear without reloading the browser.
 
 

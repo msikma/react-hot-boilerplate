@@ -4,7 +4,7 @@
 
 var grunt = require('grunt');
 var EOL = require('os').EOL;
-var copyrightInfo = require('../helpers/copyright-info.js');
+var copyrightInfo = require('../../app/lib/etc/copyright-info.js');
 
 module.exports = grunt.registerTask(
   'dev',

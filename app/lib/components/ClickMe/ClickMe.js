@@ -3,6 +3,7 @@
 // MIT License
 
 import React from 'react';
+
 import ClickMeActions from './ClickMeActions.js'
 import ClickMeStore from './ClickMeStore.js'
 
@@ -39,7 +40,12 @@ export default class ClickMe extends React.Component {
   render() {
     return (
       <div>
-        <p>You've pressed this button {this.state.amount} times.</p>
+        <h3>Click me component (<code>app/lib/components/ClickMe/</code>)</h3>
+        {this.props.showCount == true ?
+          <p>You've pressed this button {this.state.amount} times.</p>
+        :
+          <p>Who knows how many times you've clicked this?</p>
+        }
         <button onClick={this._clickIt}>Click me</button>
       </div>
     );

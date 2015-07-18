@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // React Hot Boilerplate (replace this copyright notice with your own)
 // (C) 2015, Michiel Sikma <michiel@sikma.org>
 // MIT License
@@ -7,6 +8,7 @@
 var ArgumentParser = require('argparse').ArgumentParser;
 var appModulePath = require('app-module-path');
 var repov = require('repo-v');
+var path = require('path');
 
 // Data from our package, where we keep app-specific configuration.
 var packageData = require(__dirname + '/package.json');
@@ -42,6 +44,10 @@ parser.addArgument(['-p', '--port'], {
 
 // Parse the user's command-line arguments.
 var args = parser.parseArgs();
+// todo: do stuff here.
+
+// Assume production state.
+process.env.NODE_ENV = 'production';
 
 // Transpile ES2015+ to ES5. Remove when NodeJS starts supporting ES2015.
 require('babel/register');

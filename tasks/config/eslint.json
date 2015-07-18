@@ -5,7 +5,34 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "comma-dangle": "never",
+    "no-console": false,
+    "no-debugger": false,
+    "no-unexpected-multiline": true,
+    "valid-jsdoc": [2, {
+      "prefer": {
+        "return": "returns",
+        "requireReturn": false
+      }
+    }],
     "quotes": [2, "single"],
+    "strict": [2, "never"],
+
+    "accessor-pairs": true,
+    "curly": [2, "all"],
+    "default-case": true,
+    "eqeqeq": [2, "smart"],
+    "no-floating-decimal": true,
+    "no-sequences": false,
+    "no-void": true,
+    "radix": true,
+    "wrap-iife": [2, "outside"],
+    "yoda": [2, "never"],
+
     "strict": [2, "never"]
+  },
+  "ecmaFeatures": {
+    "regexYFlag": true,
+    "regexUFlag": true
   }
 }

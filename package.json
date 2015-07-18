@@ -31,6 +31,7 @@
     "babel-eslint": "^3.1.23",
     "babel-loader": "^5.3.1",
     "esprima-fb": "^15001.1.0-dev-harmony-fb",
+    "express": "^4.13.1",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",
@@ -44,31 +45,50 @@
     "react-hot-loader": "^1.2.8",
     "react-router": "^0.13.3",
     "repo-v": "^1.0.3",
+    "tape": "^4.0.0",
     "webpack": "^1.10.1",
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
     "alt": "^0.17.1",
     "classnames": "^2.1.3",
+    "jade": "^1.11.0",
     "lodash": "^3.10.0",
     "react": "^0.13.3"
   },
   "_app": {
     "copyrightStartYear": 2014,
     "copyrightSource": [
-      ["React Hot Boilerplate <https://github.com/some/url>", "cyan"],
-      ["(C) %YEAR%, Michiel Sikma <michiel@sikma.org>", "green"],
-      ["Replace this copyright notice with your own. It's located in package.json.", "yellow"],
-      ["For more information, visit <https://my.cool.website.com/>.", "yellow"]
+      [
+        "React Hot Boilerplate <https://github.com/some/url>",
+        "cyan"
+      ],
+      [
+        "(C) %YEAR%, Michiel Sikma <michiel@sikma.org>",
+        "green"
+      ],
+      [
+        "Replace this copyright notice with your own. It's located in package.json.",
+        "yellow"
+      ],
+      [
+        "For more information, visit <https://my.cool.website.com/>.",
+        "yellow"
+      ]
     ],
     "copyrightPublic": [
-      ["React Hot Boilerplate"],
-      ["(C) %YEAR%, Michiel Sikma - MIT License"]
+      [
+        "React Hot Boilerplate"
+      ],
+      [
+        "(C) %YEAR%, Michiel Sikma - MIT License"
+      ]
     ],
     "runDescription": "React Hot Boilerplate front-end server script. Listens for incoming requests and returns HTML.",
     "runEpilogue": "See <http://github.com/some/url> for more information. Change this string in package.json.",
     "importPaths": [
-      "/app/lib/"
+      "/app/lib/",
+      "/app/"
     ]
   }
 }

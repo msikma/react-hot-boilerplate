@@ -5,7 +5,7 @@
 var EOL = require('os').EOL;
 
 // Helper function to print the copyright.
-var copyrightInfo = require('./helpers/copyright-info.js');
+var copyrightInfo = require('../app/lib/etc/copyright-info.js');
 
 module.exports = {
   'options': {

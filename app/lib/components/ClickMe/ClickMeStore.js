@@ -10,6 +10,12 @@ class ClickMeStore {
     this.amount = 0;
     this.bindAction(ClickMeActions.clickIt, this.clickIt);
   }
+
+  /**
+   * Increments the button click amount.
+   *
+   * @param {Object} state
+   */
   clickIt(state) {
     this.amount += 1;
   }

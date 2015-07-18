@@ -3,7 +3,7 @@
 // MIT License
 
 var grunt = require('grunt');
-var copyrightInfo = require('../helpers/copyright-info.js');
+var copyrightInfo = require('../../app/lib/etc/copyright-info.js');
 
 module.exports = grunt.registerTask(
   'master',
