@@ -8,6 +8,7 @@
 // without the need for transpilation.
 
 var path = require('path');
+var clc = require('cli-color');
 var EOL = require('os').EOL;
 var packageData = require(path.join(process.cwd(), 'package.json'));
 var appConfig = packageData._app;
@@ -58,10 +59,8 @@ function getCopyrightLines(type, colorized, addEmpty) {
     lineContent = copyrightLines[n][0];
     lineColor = copyrightLines[n][1];
 
-    if (colorized && lineColor && lineContent[lineColor]) {
-      // Note: this only works when using with Grunt; never true otherwise.
-      // Applies colorized output, e.g. 'string'.yellow.
-      cleanLines.push(lineContent[lineColor]);
+    if (colorized && lineColor && clc[lineColor]) {
+      cleanLines.push(clc[lineColor](lineContent));
     }
     else {
       cleanLines.push(lineContent);

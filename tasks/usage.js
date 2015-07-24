@@ -20,6 +20,9 @@ module.exports = {
         'tasks': ['dev', 'staging', 'master']
       },
       {
+        'header': ''
+      },
+      {
         'header': 'Code validation',
         'tasks': ['eslint', 'jscs']
       },

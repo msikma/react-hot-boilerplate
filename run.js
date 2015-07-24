@@ -5,50 +5,50 @@
 
 'use strict';
 
-var ArgumentParser = require('argparse').ArgumentParser;
-var appModulePath = require('app-module-path');
-var repov = require('repo-v');
-var path = require('path');
+// Load the program's accepted argument definitions,
+// and the available scripts.
+var renderArgs = require('./newtasks/argparse/render-args');
+var parser = renderArgs.parser;
 
-// Data from our package, where we keep app-specific configuration.
-var packageData = require(__dirname + '/package.json');
-var appConfig = packageData._app;
-
-// Add application import paths. By default we add /app/lib/ to the list
-// of import paths, allowing easy access to all the main modules.
-// See the 'importPaths' key in the package.json file.
-for (var n = 0; n < appConfig.importPaths.length; ++n) {
-  appModulePath.addPath(__dirname + appConfig.importPaths[n]);
-}
-
-// Set up the arguments parser to accept command-line arguments.
-var parser = new ArgumentParser({
-  version: packageData.version,
-  addHelp: true,
-  description: appConfig.runDescription,
-  epilog: appConfig.runEpilogue
-});
-parser.addArgument(['-n', '--no-caching'], {
-    'nargs': 0,
-    'required': false,
-    'help': 'Run with caching turned off. Previously generated cache '
-      + 'will not be used.'
-  }
-);
-parser.addArgument(['-p', '--port'], {
-    'nargs': 1,
-    'required': false,
-    'help': 'Specifies the listening port (8080).'
-  }
-);
-
-// Parse the user's command-line arguments.
+// Parse command-line arguments.
 var args = parser.parseArgs();
-// todo: do stuff here.
 
-// Assume production state.
-process.env.NODE_ENV = 'production';
+// Start the server and hand the controls over to Express.
+runServer(args);
 
-// Transpile ES2015+ to ES5. Remove when NodeJS starts supporting ES2015.
-require('babel/register');
-require('./app/lib/render/server');
+/**
+ * Starts our rendering server at localhost:9000 by default.
+ *
+ * The site is written in ES2015, so in order to run in an ES5-only
+ * environment we register the BabelJS transpiler before loading the code.
+ *
+ * @param {Object} args Parsed command-line arguments
+ */
+function runServer(args) {
+  var appModulePath = require('app-module-path');
+
+  // Data from our package, where we keep app-specific configuration.
+  var packageData = require(__dirname + '/package.json');
+  var appConfig = packageData._app;
+
+  // Add application import paths. By default we add /app/lib/ to the list
+  // of import paths, allowing easy access to all the main modules.
+  // See the 'importPaths' key in the package.json file.
+  for (var n = 0; n < appConfig.importPaths.length; ++n) {
+    appModulePath.addPath(__dirname + appConfig.importPaths[n]);
+  }
+
+  // Assume production state.
+  process.env.NODE_ENV = 'production';
+
+  // Transpile ES2015+ to ES5. Remove when NodeJS starts supporting ES2015.
+  require('babel/register');
+  var listen = require('./app/lib/render/server');
+
+  listen.apply(null, [
+    parseInt(args.port, 10),
+    args.no_caching,
+    renderArgs.packageData,
+    renderArgs.appVersion
+  ]);
+}

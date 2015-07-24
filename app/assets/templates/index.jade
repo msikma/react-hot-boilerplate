@@ -1,8 +1,8 @@
-extends container
+extends containers/standard
 
 block content
     #root
         #app!=html
         script.
             __DATA__ = !{data}
-    script(src='#{bundle}')
+    script(src='#{jsBundle}')
